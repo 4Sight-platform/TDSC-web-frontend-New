@@ -26,7 +26,7 @@ export default {
             },
             fontFamily: {
                 'sans': ['Inter', 'system-ui', 'sans-serif'],
-                'serif': ['Playfair Display', 'Georgia', 'serif'],
+                'serif': ['Nunito Sans', 'Trebuchet MS', 'sans-serif'],
             },
             animation: {
                 'float': 'float 6s ease-in-out infinite',

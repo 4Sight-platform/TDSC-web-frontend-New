@@ -8,7 +8,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #faf8f5;
 }
 
 .dark ::-webkit-scrollbar-track {
@@ -37,7 +37,7 @@ html {
 
 body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #f8fafc;
+    background-color: #faf8f5;
     color: #1e293b;
     line-height: 1.7;
     letter-spacing: -0.01em;
@@ -114,12 +114,12 @@ body {
         filter: blur(10px);
     }
 
-    /* Floating orbs - Muted in light mode for subtle effect */
+    /* Floating orbs - More vibrant in light mode for visual interest */
     .orb {
         position: absolute;
         border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.15;
+        filter: blur(70px);
+        opacity: 0.35;
         animation: float 8s ease-in-out infinite;
     }
 
@@ -129,8 +129,8 @@ body {
     }
 
     .orb-coral {
-        background: #e5a18a;
-        /* Muted coral for light mode */
+        background: #ff8f6b;
+        /* Vibrant coral for light mode */
     }
 
     .dark .orb-coral {
@@ -139,8 +139,8 @@ body {
     }
 
     .orb-violet {
-        background: #c4b5fd;
-        /* Muted violet for light mode */
+        background: #a78bfa;
+        /* Vibrant violet for light mode */
     }
 
     .dark .orb-violet {
@@ -149,8 +149,8 @@ body {
     }
 
     .orb-cyan {
-        background: #a5f3fc;
-        /* Muted cyan for light mode */
+        background: #67e8f9;
+        /* Vibrant cyan for light mode */
     }
 
     .dark .orb-cyan {

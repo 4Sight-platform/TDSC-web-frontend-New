@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
-    { label: 'About 4Sight', href: '#4sight' },
+    { label: 'Explore 4Sight', href: '#4sight' },
     { label: 'Services', href: '#services' },
     { label: 'Publication', href: '#publication' },
     { label: 'Contact', href: '#contact' },
@@ -12,11 +13,51 @@ const navLinks = [
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { theme, toggleTheme } = useTheme();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Handle scrolling to section after navigation
+    useEffect(() => {
+        if (location.hash) {
+            // Small delay to ensure DOM is ready after navigation
+            setTimeout(() => {
+                const id = location.hash.slice(1); // Remove the # prefix
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, [location]);
+
+    // Helper to escape CSS selector for IDs that start with a number
+    const escapeSelector = (selector: string) => {
+        if (selector.startsWith('#')) {
+            const id = selector.slice(1);
+            // If ID starts with a digit, escape it for CSS selector
+            if (/^\d/.test(id)) {
+                return '#\\3' + id.charAt(0) + ' ' + id.slice(1);
+            }
+        }
+        return selector;
+    };
 
     const scrollToSection = (href: string) => {
         setIsOpen(false);
-        const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: 'smooth' });
+
+        // If not on home page, navigate to home first with the section hash
+        if (location.pathname !== '/') {
+            navigate('/' + href);
+            return;
+        }
+
+        // If already on home page, just scroll to the section
+        // Use getElementById for IDs starting with numbers (more reliable)
+        const id = href.startsWith('#') ? href.slice(1) : href;
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (

@@ -1,6 +1,8 @@
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Users, Zap, ClipboardCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+import AnimatedBackground from './AnimatedBackground';
 
 // Import theme-specific background images
 import bannerDark from '../assets/banner-collage(dark_theme).png';
@@ -14,20 +16,33 @@ const stats = [
 
 const HeroSection = () => {
     const { theme } = useTheme();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const scrollToSection = (href: string) => {
-        const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: 'smooth' });
+    const scrollToSection = (sectionId: string) => {
+        // If not on home page, navigate to home first with the section hash
+        if (location.pathname !== '/') {
+            navigate('/' + sectionId);
+            return;
+        }
+
+        const element = document.querySelector(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
         <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-100 to-slate-50 dark:from-dark-900 dark:to-dark-900 transition-colors duration-300" />
+            {/* Background - Warmer cream tone */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f5] to-[#f5f3ef] dark:from-dark-900 dark:to-dark-900 transition-colors duration-300" />
+
+            {/* Animated Background */}
+            <AnimatedBackground />
 
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-br from-violet/10 via-transparent to-coral/5 dark:from-violet/20 dark:via-dark-900 dark:to-coral/10" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-dark-900 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-violet/5 via-transparent to-coral/5 dark:from-violet/20 dark:via-dark-900 dark:to-coral/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#faf8f5] dark:from-dark-900 via-transparent to-transparent" />
 
             {/* Floating orbs */}
             <div className="orb orb-violet w-96 h-96 -top-20 -left-20 opacity-30 dark:opacity-40" style={{ animationDelay: '0s' }} />
@@ -46,7 +61,7 @@ const HeroSection = () => {
                     className="w-full h-full object-cover blur-[2px] opacity-40 dark:opacity-30"
                 />
                 {/* Overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-50/80 via-slate-50/50 to-transparent dark:from-dark-900/80 dark:via-dark-900/50 dark:to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#faf8f5]/80 via-[#faf8f5]/50 to-transparent dark:from-dark-900/80 dark:via-dark-900/50 dark:to-transparent" />
             </div>
 
             {/* Content */}
@@ -105,6 +120,13 @@ const HeroSection = () => {
                             Explore 4Sight
                             <Zap className="w-5 h-5" />
                         </button>
+                        <Link
+                            to="/assessment"
+                            className="px-6 py-4 rounded-full bg-violet/10 dark:bg-violet/20 text-violet dark:text-violet-300 font-medium flex items-center gap-2 hover:bg-violet/20 dark:hover:bg-violet/30 transition-all border border-violet/20"
+                        >
+                            <ClipboardCheck className="w-5 h-5" />
+                            Free Audit
+                        </Link>
                     </motion.div>
 
                     {/* Stats */}

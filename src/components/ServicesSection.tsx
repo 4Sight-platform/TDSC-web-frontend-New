@@ -1,5 +1,6 @@
 import { FileSearch, Cpu, GraduationCap, CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import AnimatedBackground from './AnimatedBackground';
 
 const services = [
     {
@@ -31,13 +32,19 @@ const services = [
 const ServicesSection = () => {
     return (
         <section id="services" className="section-padding relative overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-white dark:bg-dark-800 transition-colors duration-300" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-dark-900 via-transparent to-slate-50 dark:to-dark-900" />
+            {/* Warm gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#faf5f0] via-[#f8f4ef] to-[#fdf8f3] dark:from-dark-800 dark:via-dark-800 dark:to-dark-900 transition-colors duration-300" />
 
-            {/* Decorative */}
-            <div className="orb orb-coral w-64 h-64 top-20 right-[15%] opacity-10 dark:opacity-20" />
-            <div className="orb orb-violet w-56 h-56 bottom-20 left-[10%] opacity-10 dark:opacity-20" />
+            {/* Gradient overlay for depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-coral/[0.03] via-violet/[0.02] to-cyan/[0.03] dark:from-coral/[0.05] dark:via-transparent dark:to-violet/[0.05]" />
+
+            {/* Animated Background */}
+            <AnimatedBackground />
+
+            {/* Decorative orbs - more visible */}
+            <div className="orb orb-coral w-72 h-72 top-10 right-[10%] opacity-25 dark:opacity-20" />
+            <div className="orb orb-violet w-64 h-64 bottom-20 left-[5%] opacity-25 dark:opacity-20" />
+            <div className="orb orb-cyan w-48 h-48 top-1/2 left-[60%] opacity-20 dark:opacity-15" />
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Header */}
