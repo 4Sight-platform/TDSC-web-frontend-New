@@ -108,7 +108,7 @@ const PublicationSection = () => {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                                     <div className="absolute top-4 left-4">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${featuredPost.gradient}`}>
+                                        <span className="px-3 py-1 rounded-full text-xs font-medium text-white bg-coral">
                                             Featured
                                         </span>
                                     </div>
@@ -182,7 +182,7 @@ const PublicationSection = () => {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                                     <div className="absolute top-3 left-3">
-                                        <span className={`px-2.5 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${post.gradient} shadow-lg`}>
+                                        <span className="px-2.5 py-1 rounded-full text-xs font-medium text-white bg-violet shadow-lg">
                                             {post.category}
                                         </span>
                                     </div>

@@ -40,7 +40,7 @@ const Navbar = () => {
                                 className="text-slate-600 dark:text-white/70 hover:text-slate-900 dark:hover:text-white text-sm font-medium transition-colors relative group"
                             >
                                 {link.label}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-coral to-violet group-hover:w-full transition-all duration-300" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-coral group-hover:w-full transition-all duration-300" />
                             </button>
                         ))}
 
@@ -59,7 +59,7 @@ const Navbar = () => {
 
                         <button
                             onClick={() => scrollToSection('#contact')}
-                            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-coral to-violet text-white text-sm font-medium hover:shadow-lg hover:shadow-violet/30 transition-all hover:-translate-y-0.5"
+                            className="px-5 py-2.5 rounded-full bg-coral text-white text-sm font-medium hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-0.5"
                         >
                             Get Started
                         </button>
@@ -104,7 +104,7 @@ const Navbar = () => {
                         ))}
                         <button
                             onClick={() => scrollToSection('#contact')}
-                            className="w-full px-5 py-2.5 rounded-full bg-gradient-to-r from-coral to-violet text-white text-sm font-medium"
+                            className="w-full px-5 py-2.5 rounded-full bg-coral text-white text-sm font-medium"
                         >
                             Get Started
                         </button>

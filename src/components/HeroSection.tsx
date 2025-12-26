@@ -68,7 +68,7 @@ const HeroSection = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-tight mb-6"
+                        className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-tight mb-6 tracking-tight"
                     >
                         <span className="text-slate-800 dark:text-white">Transform Your Business with </span>
                         <span className="gradient-text">Intelligent Automation</span>
@@ -93,7 +93,7 @@ const HeroSection = () => {
                     >
                         <button
                             onClick={() => scrollToSection('#contact')}
-                            className="px-8 py-4 rounded-full bg-gradient-to-r from-coral to-violet text-white font-semibold flex items-center gap-2 hover:shadow-xl hover:shadow-violet/30 transition-all hover:-translate-y-1 group"
+                            className="px-8 py-4 rounded-full bg-coral text-white font-semibold flex items-center gap-2 hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-1 group"
                         >
                             Get Started
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
