@@ -30,18 +30,6 @@ const Navbar = () => {
         }
     }, [location]);
 
-    // Helper to escape CSS selector for IDs that start with a number
-    const escapeSelector = (selector: string) => {
-        if (selector.startsWith('#')) {
-            const id = selector.slice(1);
-            // If ID starts with a digit, escape it for CSS selector
-            if (/^\d/.test(id)) {
-                return '#\\3' + id.charAt(0) + ' ' + id.slice(1);
-            }
-        }
-        return selector;
-    };
-
     const scrollToSection = (href: string) => {
         setIsOpen(false);
 
