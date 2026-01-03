@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { Send, MapPin, Mail, Phone, Linkedin, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
+import { Send, MapPin, Mail, Phone, Linkedin, Twitter, Youtube } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const socialLinks = [
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
     { icon: Youtube, href: '#', label: 'YouTube' },
 ];
 

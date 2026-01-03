@@ -1,28 +1,29 @@
-import { Zap, BarChart3, Sparkles, ArrowRight } from 'lucide-react';
+import { Target, Rocket, ShieldCheck, TrendingUp, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const features = [
     {
-        icon: Zap,
-        title: 'Real-Time Integration',
-        description: 'Connect your data sources instantly and see live updates.',
+        icon: Target,
+        title: 'Strategy',
+        description: 'Strategic workbench for diagnostic health checks and goal-oriented planning.',
     },
     {
-        icon: BarChart3,
-        title: 'SEO Grader',
-        description: 'Optimize your digital presence with actionable insights.',
+        icon: Rocket,
+        title: 'Implementation',
+        description: 'AI-enabled toolset to generate artifacts like Blogs, FAQs, and Meta Tags.',
     },
     {
-        icon: Sparkles,
-        title: 'Automation Dashboard',
-        description: 'Control all your workflows in one powerful place.',
+        icon: ShieldCheck,
+        title: 'Governance',
+        description: 'Real-time 24x7 monitoring with alerts for performance degradation.',
+    },
+    {
+        icon: TrendingUp,
+        title: 'Optimization',
+        description: 'Strategic insights for ecosystem, competition, and keyword universe optimization.',
     },
 ];
 
-const stats = [
-    { value: '50+', label: 'Integrations' },
-    { value: '99.9%', label: 'Uptime' },
-];
 
 const FourSightSection = () => {
     return (
@@ -89,21 +90,6 @@ const FourSightSection = () => {
                             </motion.div>
                         ))}
 
-                        {/* Stats badges */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                            className="flex flex-wrap items-center gap-4 pt-4"
-                        >
-                            {stats.map((stat) => (
-                                <div key={stat.label} className="stat-badge">
-                                    <span className="text-xl font-bold text-coral">{stat.value}</span>
-                                    <span className="text-sm text-slate-500 dark:text-white/60 ml-2">{stat.label}</span>
-                                </div>
-                            ))}
-                        </motion.div>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap, ClipboardCheck } from 'lucide-react';
+import { ArrowRight, Zap, ClipboardCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
@@ -8,11 +8,7 @@ import AnimatedBackground from './AnimatedBackground';
 import bannerDark from '../assets/banner-collage(dark_theme).png';
 import bannerLight from '../assets/banner-collage(light_theme).png';
 
-const stats = [
-    { value: '200+', label: 'Clients Served' },
-    { value: '50+', label: 'Integrations' },
-    { value: '99.9%', label: 'Uptime' },
-];
+
 
 const HeroSection = () => {
     const { theme } = useTheme();
@@ -67,16 +63,7 @@ const HeroSection = () => {
             {/* Content */}
             <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
                 <div className="max-w-3xl">
-                    {/* Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm mb-8 shadow-sm"
-                    >
-                        <Sparkles className="w-4 h-4 text-coral" />
-                        <span className="text-sm text-slate-700 dark:text-white/80">Intelligent Automation Platform</span>
-                    </motion.div>
+
 
                     {/* Headline */}
                     <motion.h1
@@ -125,29 +112,11 @@ const HeroSection = () => {
                             className="px-6 py-4 rounded-full bg-violet/10 dark:bg-violet/20 text-violet dark:text-violet-300 font-medium flex items-center gap-2 hover:bg-violet/20 dark:hover:bg-violet/30 transition-all border border-violet/20"
                         >
                             <ClipboardCheck className="w-5 h-5" />
-                            Free Audit
+                            Data Maturity Audit
                         </Link>
                     </motion.div>
 
-                    {/* Stats */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="flex flex-wrap items-center gap-6"
-                    >
-                        {stats.map((stat, index) => (
-                            <div key={stat.label} className="stat-badge flex items-center gap-3">
-                                {index === 0 && <Users className="w-5 h-5 text-coral" />}
-                                {index === 1 && <Zap className="w-5 h-5 text-violet" />}
-                                {index === 2 && <TrendingUp className="w-5 h-5 text-cyan" />}
-                                <div>
-                                    <span className="text-xl font-bold text-slate-800 dark:text-white">{stat.value}</span>
-                                    <span className="text-sm text-slate-500 dark:text-white/60 ml-2">{stat.label}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </motion.div>
+
                 </div>
             </div>
 
