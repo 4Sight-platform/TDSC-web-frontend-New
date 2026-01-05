@@ -100,13 +100,15 @@ const HeroSection = () => {
                             Get Started
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
-                        <button
-                            onClick={() => scrollToSection('#4sight')}
+                        <a
+                            href="https://4sight-one.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-8 py-4 rounded-full border-2 border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-medium flex items-center gap-2 hover:border-violet/50 hover:bg-violet/5 dark:hover:bg-white/5 transition-all"
                         >
-                            Explore 4Sight
+                            Onboard in 4Sight
                             <Zap className="w-5 h-5" />
-                        </button>
+                        </a>
                         <Link
                             to="/assessment"
                             className="px-6 py-4 rounded-full bg-violet/10 dark:bg-violet/20 text-violet dark:text-violet-300 font-medium flex items-center gap-2 hover:bg-violet/20 dark:hover:bg-violet/30 transition-all border border-violet/20"

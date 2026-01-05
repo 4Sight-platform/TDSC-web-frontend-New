@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
-    { label: 'Explore 4Sight', href: '#4sight' },
+    { label: '4Sight', href: '#4sight' },
     { label: 'Services', href: '#services' },
     { label: 'Publication', href: '#publication' },
     { label: 'Contact', href: '#contact' },

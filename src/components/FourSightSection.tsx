@@ -57,10 +57,15 @@ const FourSightSection = () => {
                             Next-gen automation platform for scaling businesses with AI-powered insights. Everything you need to transform your operations.
                         </p>
 
-                        <button className="px-8 py-4 rounded-full bg-coral text-white font-semibold flex items-center gap-2 hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-1 group">
+                        <a
+                            href="https://4sight-one.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-8 py-4 rounded-full bg-coral text-white font-semibold flex items-center gap-2 hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-1 group"
+                        >
                             Explore 4Sight
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </a>
                     </motion.div>
 
                     {/* Right - Feature Cards */}
