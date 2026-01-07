@@ -9,6 +9,9 @@ import Footer from './components/Footer'
 import AssessmentPage from './pages/AssessmentPage'
 import PublicationsPage from './pages/PublicationsPage'
 import PublicationDetailPage from './pages/PublicationDetailPage'
+import SignInPage from './pages/SignInPage'
+import SignUpPage from './pages/SignUpPage'
+import { AuthProvider } from './context/AuthContext'
 
 // Home page component
 const HomePage = () => (
@@ -27,14 +30,18 @@ const HomePage = () => (
 
 function App() {
     return (
-        <div className="min-h-screen bg-[#faf8f5] dark:bg-dark-900 transition-colors duration-300">
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/assessment" element={<AssessmentPage />} />
-                <Route path="/publications" element={<PublicationsPage />} />
-                <Route path="/publications/:slug" element={<PublicationDetailPage />} />
-            </Routes>
-        </div>
+        <AuthProvider>
+            <div className="min-h-screen bg-[#faf8f5] dark:bg-dark-900 transition-colors duration-300">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/assessment" element={<AssessmentPage />} />
+                    <Route path="/publications" element={<PublicationsPage />} />
+                    <Route path="/publications/:slug" element={<PublicationDetailPage />} />
+                    <Route path="/signin" element={<SignInPage />} />
+                    <Route path="/signup" element={<SignUpPage />} />
+                </Routes>
+            </div>
+        </AuthProvider>
     )
 }
 
