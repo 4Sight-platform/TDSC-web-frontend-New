@@ -1,9 +1,8 @@
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
     ArrowLeft,
-    CheckCircle,
     ChevronRight,
     Database,
     BarChart2,
@@ -487,7 +486,7 @@ const AssessmentPage = () => {
                             </div>
 
                             <div className="space-y-8 pl-0 md:pl-16">
-                                {section.questions.map((question, qIndex) => (
+                                {section.questions.map((question) => (
                                     <div key={question.id} className="relative">
                                         <div className="flex items-baseline gap-3 mb-3">
                                             <span className="text-sm font-medium text-slate-400 dark:text-white/40 font-mono">

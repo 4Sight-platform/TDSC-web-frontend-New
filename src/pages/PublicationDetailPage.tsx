@@ -26,7 +26,7 @@ const formatRelativeTime = (dateString: string): string => {
 const PublicationDetailPage = () => {
     const { slug } = useParams<{ slug: string }>();
     const post = slug ? getPostBySlug(slug) : undefined;
-    const { user, isAuthenticated } = useAuth();
+    const { isAuthenticated } = useAuth();
 
     const [votes, setVotes] = useState<VoteResponse>({ upvotes: 0, downvotes: 0, user_vote: null });
     const [comments, setComments] = useState<Comment[]>([]);
