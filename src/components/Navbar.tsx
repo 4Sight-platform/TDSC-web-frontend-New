@@ -3,6 +3,7 @@ import { Menu, X, Sun, Moon, User, LogOut } from 'lucide-react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
+import tdscLogo from '../assets/TDSC_LOGO.JPG';
 
 const navLinks = [
     { label: '4Sight', href: '#4sight' },
@@ -63,9 +64,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex items-center justify-between h-20">
                     <Link to="/" className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-coral via-violet to-cyan flex items-center justify-center shadow-lg shadow-violet/20 group-hover:shadow-violet/40 transition-shadow">
-                            <span className="text-white font-serif font-bold text-xl">T</span>
-                        </div>
+                        <img src={tdscLogo} alt="TDSC Logo" className="w-10 h-10 rounded-xl object-contain shadow-lg shadow-violet/20 group-hover:shadow-violet/40 transition-shadow" />
                         <span className="text-xl font-serif font-semibold text-slate-800 dark:text-white transition-colors">TDSC</span>
                     </Link>
 

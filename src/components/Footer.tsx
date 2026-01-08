@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Send, MapPin, Mail, Phone, Linkedin, Twitter, Youtube } from 'lucide-react';
 import { motion } from 'framer-motion';
+import tdscLogo from '../assets/TDSC_LOGO.JPG';
 
 const socialLinks = [
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
@@ -132,9 +133,7 @@ const Footer = () => {
                         >
                             {/* Logo */}
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-coral via-violet to-cyan flex items-center justify-center shadow-lg shadow-violet/20">
-                                    <span className="text-white font-serif font-bold text-2xl">T</span>
-                                </div>
+                                <img src={tdscLogo} alt="TDSC Logo" className="w-12 h-12 rounded-xl object-contain shadow-lg shadow-violet/20" />
                                 <span className="text-2xl font-serif font-semibold text-slate-800 dark:text-white transition-colors">TDSC</span>
                             </div>
 
