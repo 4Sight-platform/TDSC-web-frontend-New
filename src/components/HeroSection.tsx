@@ -101,7 +101,7 @@ const HeroSection = () => {
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
                         <a
-                            href="https://4sight-two.vercel.app/community/seo-maturity-grader"
+                            href="https://4sight-two.vercel.app"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-8 py-4 rounded-full border-2 border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-medium flex items-center gap-2 hover:border-violet/50 hover:bg-violet/5 dark:hover:bg-white/5 transition-all"
