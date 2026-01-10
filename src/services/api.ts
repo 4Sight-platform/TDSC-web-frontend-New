@@ -1,12 +1,60 @@
-const API_BASE_URL = 'http://localhost:8001';
+import { tracer } from './tracer';
+
+const API_BASE_URL = 'http://localhost:8000';
 
 const getAuthHeaders = (): HeadersInit => {
     const token = localStorage.getItem('auth_token');
-    return token ? { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } : { 'Content-Type': 'application/json' };
+    const headers: HeadersInit = {
+        'Content-Type': 'application/json',
+        'x-request-id': tracer.getRequestId(),
+    };
+    if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+    }
+    return headers;
 };
 
+/**
+ * Helper function to make API requests with tracing
+ */
+async function apiRequest<T>(
+    method: string,
+    endpoint: string,
+    body?: any,
+    context?: Record<string, any>
+): Promise<T> {
+    const url = `${API_BASE_URL}${endpoint}`;
+    const startTime = performance.now();
+
+    try {
+        tracer.logApiRequest(method, endpoint, context);
+
+        const response = await fetch(url, {
+            method,
+            headers: getAuthHeaders(),
+            body: body ? JSON.stringify(body) : undefined,
+        });
+
+        const duration = performance.now() - startTime;
+        tracer.logApiResponse(method, endpoint, response.status, duration, context);
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || `${method} ${endpoint} failed`);
+        }
+
+        return response.json();
+    } catch (error) {
+        const duration = performance.now() - startTime;
+        if (error instanceof Error) {
+            tracer.logApiError(method, endpoint, error, { ...context, duration });
+        }
+        throw error;
+    }
+}
+
 export interface User {
-    id: number;
+    id: string;
     username: string;
     email: string;
     created_at: string;
@@ -34,76 +82,64 @@ export interface Comment {
 
 export const authApi = {
     signup: async (username: string, email: string, password: string): Promise<AuthResponse> => {
-        const res = await fetch(`${API_BASE_URL}/auth/signup`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, email, password }),
-        });
-        if (!res.ok) {
-            const error = await res.json();
-            throw new Error(error.detail || 'Signup failed');
-        }
-        return res.json();
+        tracer.logAuthEvent('Signup Attempt', username);
+        const response = await apiRequest<AuthResponse>('POST', '/auth/signup', {
+            username,
+            email,
+            password,
+        }, { username, email });
+        tracer.logAuthEvent('Signup Successful', username);
+        return response;
     },
 
     signin: async (email: string, password: string): Promise<AuthResponse> => {
-        const res = await fetch(`${API_BASE_URL}/auth/signin`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password }),
-        });
-        if (!res.ok) {
-            const error = await res.json();
-            throw new Error(error.detail || 'Sign in failed');
-        }
-        return res.json();
+        tracer.logAuthEvent('Signin Attempt', email);
+        const response = await apiRequest<AuthResponse>('POST', '/auth/signin', {
+            email,
+            password,
+        }, { email });
+        tracer.logAuthEvent('Signin Successful', email);
+        return response;
     },
 
     getMe: async (): Promise<User> => {
-        const res = await fetch(`${API_BASE_URL}/auth/me`, { headers: getAuthHeaders() });
-        if (!res.ok) throw new Error('Not authenticated');
-        return res.json();
+        return apiRequest<User>('GET', '/auth/me');
     },
 };
 
 export const engagementApi = {
     getVotes: async (slug: string): Promise<VoteResponse> => {
-        const res = await fetch(`${API_BASE_URL}/posts/${slug}/votes`, { headers: getAuthHeaders() });
-        if (!res.ok) throw new Error('Failed to get votes');
-        return res.json();
+        return apiRequest<VoteResponse>('GET', `/posts/${slug}/votes`, undefined, { slug });
     },
 
     submitVote: async (slug: string, voteType: 'up' | 'down'): Promise<VoteResponse> => {
-        const res = await fetch(`${API_BASE_URL}/posts/${slug}/votes`, {
-            method: 'POST',
-            headers: getAuthHeaders(),
-            body: JSON.stringify({ vote_type: voteType }),
-        });
-        if (!res.ok) throw new Error('Failed to submit vote');
-        return res.json();
+        tracer.logEngagementEvent('Vote Submission', slug, { voteType });
+        const response = await apiRequest<VoteResponse>('POST', `/posts/${slug}/votes`, {
+            vote_type: voteType,
+        }, { slug, voteType });
+        tracer.logEngagementEvent('Vote Submission Successful', slug, { voteType });
+        return response;
     },
 
     getComments: async (slug: string): Promise<Comment[]> => {
-        const res = await fetch(`${API_BASE_URL}/posts/${slug}/comments`, { headers: getAuthHeaders() });
-        if (!res.ok) throw new Error('Failed to get comments');
-        return res.json();
+        return apiRequest<Comment[]>('GET', `/posts/${slug}/comments`, undefined, { slug });
     },
 
     addComment: async (slug: string, text: string): Promise<Comment> => {
-        const res = await fetch(`${API_BASE_URL}/posts/${slug}/comments`, {
-            method: 'POST',
-            headers: getAuthHeaders(),
-            body: JSON.stringify({ text }),
-        });
-        if (!res.ok) throw new Error('Failed to add comment');
-        return res.json();
+        tracer.logEngagementEvent('Comment Creation', slug);
+        const response = await apiRequest<Comment>('POST', `/posts/${slug}/comments`, {
+            text,
+        }, { slug, textLength: text.length });
+        tracer.logEngagementEvent('Comment Creation Successful', slug);
+        return response;
     },
 
     deleteComment: async (slug: string, commentId: string): Promise<void> => {
-        const res = await fetch(`${API_BASE_URL}/posts/${slug}/comments/${commentId}`, {
-            method: 'DELETE',
-            headers: getAuthHeaders(),
+        tracer.logEngagementEvent('Comment Deletion', slug, { commentId });
+        await apiRequest('DELETE', `/posts/${slug}/comments/${commentId}`, undefined, {
+            slug,
+            commentId,
         });
-        if (!res.ok) throw new Error('Failed to delete comment');
+        tracer.logEngagementEvent('Comment Deletion Successful', slug);
     },
 };
