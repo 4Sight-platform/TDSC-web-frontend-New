@@ -1,0 +1,11 @@
+# Render.com deployment configuration for TDSC Frontend
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: static
+    name: tdsc-frontend
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false # Set in dashboard
