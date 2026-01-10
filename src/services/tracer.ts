@@ -4,11 +4,7 @@
  * Provides structured logging and performance monitoring for the React frontend.
  */
 
-interface TraceContext {
-  requestId: string;
-  timestamp: string;
-  level: 'info' | 'warn' | 'error' | 'debug';
-}
+
 
 interface PerformanceMetric {
   operation: string;
