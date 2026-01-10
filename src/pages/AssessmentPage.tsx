@@ -40,7 +40,7 @@ const assessmentData: Section[] = [
     {
         id: 'A',
         title: 'Data Sources & Coverage',
-        description: 'What data enters the organization, and how broad is it?',
+        description: 'What data enters the organisation, and how broad is it?',
         icon: Database,
         color: 'text-violet',
         questions: [
@@ -139,8 +139,8 @@ const assessmentData: Section[] = [
                 id: 'q9',
                 text: 'How far back does usable historical data go?',
                 options: [
-                    { label: 'Little or none', score: 0 },
-                    { label: 'Few months', score: 1 },
+                    { label: '1-3 months', score: 0 },
+                    { label: '4-12 months', score: 1 },
                     { label: '1–2 years', score: 2 },
                     { label: 'Multiple years, well maintained', score: 3 },
                 ]
@@ -158,10 +158,10 @@ const assessmentData: Section[] = [
                 id: 'q10',
                 text: 'When key decisions are made, data is:',
                 options: [
-                    { label: 'Not used', score: 0 },
-                    { label: 'Used after decisions', score: 1 },
-                    { label: 'Used alongside judgment', score: 2 },
-                    { label: 'Required beforehand', score: 3 },
+                    { label: 'Not used (Totally experience based, no data analysis is used)', score: 0 },
+                    { label: 'Used after decisions (Majorly for validation and tracking of decision progress)', score: 1 },
+                    { label: 'Used alongside judgment (Basic Data Analysis)', score: 2 },
+                    { label: 'AI-driven rigorous data-analysis in decision making', score: 3 },
                 ]
             },
             {
@@ -186,16 +186,6 @@ const assessmentData: Section[] = [
             },
             {
                 id: 'q13',
-                text: 'Do teams test or experiment based on data?',
-                options: [
-                    { label: 'Never', score: 0 },
-                    { label: 'Rarely', score: 1 },
-                    { label: 'Regularly', score: 2 },
-                    { label: 'Core operating method', score: 3 },
-                ]
-            },
-            {
-                id: 'q14',
                 text: 'Can business outcomes be traced back to data-based decisions?',
                 options: [
                     { label: 'No', score: 0 },
@@ -205,7 +195,7 @@ const assessmentData: Section[] = [
                 ]
             },
             {
-                id: 'q15',
+                id: 'q14',
                 text: 'Does data influence long-term planning and strategy?',
                 options: [
                     { label: 'No', score: 0 },
@@ -224,7 +214,7 @@ const assessmentData: Section[] = [
         color: 'text-emerald',
         questions: [
             {
-                id: 'q16',
+                id: 'q15',
                 text: 'Is someone accountable for data quality and definitions?',
                 options: [
                     { label: 'No one', score: 0 },
@@ -234,7 +224,7 @@ const assessmentData: Section[] = [
                 ]
             },
             {
-                id: 'q17',
+                id: 'q16',
                 text: 'Are outcomes reviewed to improve future decisions?',
                 options: [
                     { label: 'Never', score: 0 },
@@ -244,7 +234,7 @@ const assessmentData: Section[] = [
                 ]
             },
             {
-                id: 'q18',
+                id: 'q17',
                 text: 'How critical is data to future competitiveness?',
                 options: [
                     { label: 'Not critical', score: 0 },
@@ -273,35 +263,28 @@ const maturityLevels: MaturityLevel[] = [
         range: [0, 15],
         description: 'Data is siloed, decisions are intuition-based, no clear data strategy.',
         inference: 'Your organization is in the early stages of data maturity. Data exists but is often trapped in silos, manually collected, or unreliable. Decisions are largely reactive and intuition-based. To move forward, focus on identifying key data sources, automating basic collection, and establishing a single source of truth for critical business metrics.',
-        color: 'text-slate-500' // Grey
+        color: 'text-slate-500'
     },
     {
         label: 'Operational',
         range: [16, 26],
         description: 'Basic data collection exists, but integration is limited.',
         inference: 'You have established basic data operations. While you collect important data, integrating it into a cohesive view remains a challenge. Reporting is likely manual or retrospective. The next step is to break down silos, automate reporting, and start using data to answer "why" things happened, not just "what" happened.',
-        color: 'text-cyan-500' // Cyan
+        color: 'text-cyan-500'
     },
     {
         label: 'Analytical',
         range: [27, 38],
         description: 'Data informs decisions, some automation exists, gaps in governance.',
-        inference: 'your organization effectively uses data to understand performance. You have decent integration and trust in your numbers, but predictive capabilities and automated actions may be lacking. To scale, focus on data governance, advanced analytics, and embedding insights directly into operational workflows to drive real-time action.',
-        color: 'text-coral' // Coral/Orange
+        inference: 'Your organization effectively uses data to understand performance. You have decent integration and trust in your numbers, but predictive capabilities and automated actions may be lacking. To scale, focus on data governance, advanced analytics, and embedding insights directly into operational workflows to drive real-time action.',
+        color: 'text-coral'
     },
     {
         label: 'Data-Driven',
-        range: [39, 48],
-        description: 'Strong data foundation, decisions are consistently data-backed.',
-        inference: 'Data is a strategic asset for your business. You have strong governance, automated pipelines, and a culture that relies on evidence over intuition. The frontier for you is "Data Native" status—moving from sporadic insights to continuous, AI-driven optimization where the system itself suggests or takes actions to improve outcomes.',
-        color: 'text-violet' // Violet
-    },
-    {
-        label: 'Data-Native',
-        range: [49, 54],
-        description: 'Data is a core competitive advantage, fully integrated, real-time insights.',
-        inference: 'Congratulations, you are operating at the peak of data maturity. Data is not just a report you read; it is the nervous system of your enterprise. Your systems learn, adapt, and optimize in real-time. Your focus now should be on maintaining this edge, exploring experimental AI applications, and reshaping your industry through data innovation.',
-        color: 'text-emerald-500' // Emerald
+        range: [39, 51],
+        description: 'Strong data foundation, decisions are consistently data-backed, data is a core competitive advantage.',
+        inference: 'Congratulations! Data is a strategic asset for your business. You have strong governance, automated pipelines, and a culture that relies on evidence over intuition. Your systems learn, adapt, and optimize effectively. Your focus now should be on maintaining this edge, exploring AI applications, and reshaping your industry through data innovation.',
+        color: 'text-violet'
     }
 ];
 
@@ -378,13 +361,13 @@ const AssessmentPage = () => {
                                         strokeWidth="8"
                                         fill="transparent"
                                         strokeDasharray={2 * Math.PI * 60}
-                                        strokeDashoffset={2 * Math.PI * 60 * (1 - totalScore / 54)}
+                                        strokeDashoffset={2 * Math.PI * 60 * (1 - totalScore / 51)}
                                         className={`${result.color} transition-all duration-1000 ease-out`}
                                     />
                                 </svg>
                                 <div className="absolute inset-0 flex items-center justify-center pt-2">
                                     <span className={`text-2xl font-bold ${result.color}`}>{totalScore}</span>
-                                    <span className="text-xs text-slate-400 absolute mt-6">/ 54</span>
+                                    <span className="text-xs text-slate-400 absolute mt-6">/ 51</span>
                                 </div>
                             </div>
                         </div>
@@ -455,7 +438,7 @@ const AssessmentPage = () => {
                     </h1>
                     <p className="text-lg text-slate-600 dark:text-white/70 max-w-2xl">
                         Assess where you stand on the journey to becoming a data-native organization.
-                        Answer 18 questions across 4 key dimensions to get your personalized maturity score and insights.
+                        Answer 17 questions across 4 key dimensions to get your personalized maturity score and insights.
                     </p>
                 </motion.div>
 
@@ -560,7 +543,7 @@ const AssessmentPage = () => {
                                     {Object.keys(answers).length}
                                 </span>
                                 <span className="text-sm text-slate-500 dark:text-white/50 mb-1">
-                                    / 18 Answered
+                                    / 17 Answered
                                 </span>
                             </div>
                         </div>
