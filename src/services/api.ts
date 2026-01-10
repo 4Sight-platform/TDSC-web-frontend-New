@@ -1,6 +1,6 @@
 import { tracer } from './tracer';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://tdsc-web-backend.onrender.com';
 
 const getAuthHeaders = (): HeadersInit => {
     const token = localStorage.getItem('auth_token');
