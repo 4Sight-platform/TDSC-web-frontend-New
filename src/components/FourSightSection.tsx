@@ -58,7 +58,7 @@ const FourSightSection = () => {
                         </p>
 
                         <a
-                            href="https://4sight-two.vercel.app/community/seo-maturity-grader"
+                            href="https://4-sight-web-frontend.vercel.app/community/seo-maturity-grader"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-8 py-4 rounded-full bg-coral text-white font-semibold flex items-center gap-2 hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-1 group"
