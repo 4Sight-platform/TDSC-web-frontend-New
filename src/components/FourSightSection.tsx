@@ -61,7 +61,7 @@ const FourSightSection = () => {
                             href="https://4-sight-web-frontend-uiq5.vercel.app"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-8 py-4 rounded-full bg-coral text-white font-semibold flex items-center gap-2 hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-1 group"
+                            className="w-full md:w-auto px-8 py-4 rounded-full bg-coral text-white font-semibold flex items-center justify-center gap-2 hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-1 group"
                         >
                             Explore 4Sight
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

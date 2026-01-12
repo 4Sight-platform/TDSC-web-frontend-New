@@ -54,7 +54,7 @@ const Footer = () => {
 
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 {/* Name & Email */}
-                                <div className="grid md:grid-cols-2 gap-4">
+                                <div className="grid sm:grid-cols-2 gap-4">
                                     <input
                                         type="text"
                                         placeholder="Name"
@@ -72,7 +72,7 @@ const Footer = () => {
                                 </div>
 
                                 {/* Organisation & Phone */}
-                                <div className="grid md:grid-cols-2 gap-4">
+                                <div className="grid sm:grid-cols-2 gap-4">
                                     <input
                                         type="text"
                                         placeholder="Organisation"

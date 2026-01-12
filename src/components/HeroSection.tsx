@@ -91,11 +91,11 @@ const HeroSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="flex flex-wrap items-center gap-4 mb-12"
+                        className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 mb-12"
                     >
                         <button
                             onClick={() => scrollToSection('#contact')}
-                            className="px-8 py-4 rounded-full bg-coral text-white font-semibold flex items-center gap-2 hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-1 group"
+                            className="w-full sm:w-auto px-8 py-4 rounded-full bg-coral text-white font-semibold flex items-center justify-center gap-2 hover:bg-coral/90 hover:shadow-lg transition-all hover:-translate-y-1 group"
                         >
                             Get Started
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -104,14 +104,14 @@ const HeroSection = () => {
                             href="https://4-sight-web-frontend-uiq5.vercel.app"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-8 py-4 rounded-full border-2 border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-medium flex items-center gap-2 hover:border-violet/50 hover:bg-violet/5 dark:hover:bg-white/5 transition-all"
+                            className="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-medium flex items-center justify-center gap-2 hover:border-violet/50 hover:bg-violet/5 dark:hover:bg-white/5 transition-all"
                         >
                             Onboard in 4Sight
                             <Zap className="w-5 h-5" />
                         </a>
                         <Link
                             to="/assessment"
-                            className="px-6 py-4 rounded-full bg-violet/10 dark:bg-violet/20 text-violet dark:text-violet-300 font-medium flex items-center gap-2 hover:bg-violet/20 dark:hover:bg-violet/30 transition-all border border-violet/20"
+                            className="w-full sm:w-auto px-6 py-4 rounded-full bg-violet/10 dark:bg-violet/20 text-violet dark:text-violet-300 font-medium flex items-center justify-center gap-2 hover:bg-violet/20 dark:hover:bg-violet/30 transition-all border border-violet/20"
                         >
                             <ClipboardCheck className="w-5 h-5" />
                             Data Maturity Audit
