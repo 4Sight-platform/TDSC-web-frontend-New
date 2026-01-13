@@ -143,11 +143,11 @@ const Footer = () => {
 
                             {/* Contact Info */}
                             <div className="space-y-4 mb-8">
-                                <div className="flex items-center gap-4 text-slate-600 dark:text-white/60 hover:text-coral transition-colors cursor-pointer group">
-                                    <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center group-hover:bg-coral/20 transition-colors">
+                                <div className="flex items-start gap-4 text-slate-600 dark:text-white/60 hover:text-coral transition-colors cursor-pointer group">
+                                    <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center group-hover:bg-coral/20 transition-colors flex-shrink-0">
                                         <MapPin className="w-5 h-5" />
                                     </div>
-                                    <span>Innovation Hub, Tech City</span>
+                                    <span className="leading-relaxed">Eastern High, Block AG 1, Major Arterial Road, Action Area 1, New Town, North 24 Parganas, West Bengal-700156</span>
                                 </div>
                                 <div className="flex items-center gap-4 text-slate-600 dark:text-white/60 hover:text-coral transition-colors cursor-pointer group">
                                     <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center group-hover:bg-coral/20 transition-colors">
@@ -159,7 +159,7 @@ const Footer = () => {
                                     <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center group-hover:bg-coral/20 transition-colors">
                                         <Phone className="w-5 h-5" />
                                     </div>
-                                    <span>+1 (555) 123-4567</span>
+                                    <span>+91 98300 50939</span>
                                 </div>
                             </div>
 
